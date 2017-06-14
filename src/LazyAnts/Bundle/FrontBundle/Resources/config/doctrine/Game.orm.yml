@@ -1,0 +1,48 @@
+LazyAnts\Bundle\FrontBundle\Entity\Game:
+    type: entity
+    table: games
+    repositoryClass: LazyAnts\Bundle\FrontBundle\Repository\GameRepository
+#    indexes:
+#        home_team_id:
+#            columns:
+#                - home_team
+#        away_team_id:
+#            columns:
+#                - away_team
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        date:
+            type: date
+            nullable: false
+        score:
+            type: string
+            nullable: false
+            length: 10
+            options:
+                fixed: false
+
+    manyToOne:
+        homeTeam:
+            targetEntity: Team
+            cascade: {  }
+            mappedBy: homeTeam
+            inversedBy: homeGames
+            joinColumns:
+                home_team_id:
+                    referencedColumnName: id
+        awayTeam:
+            targetEntity: Team
+            cascade: {  }
+            joinColumns:
+                away_team_id:
+                    referencedColumnName: id
+
+    lifecycleCallbacks: {  }

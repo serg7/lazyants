@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %} Premier League {% endblock %}
+
+
+
+{% block body %}
+
+    <div class="container">
+
+        <h1>Premier League 2011-2012</h1>
+
+        <ul>
+            {% for team in teams %}
+                <li><a href="{{ path('_team_page', {'name': team.name}) }}">{{ team.name }}</a></li>
+            {% endfor %}
+        </ul>
+
+    </div>
+
+
+{% endblock %}

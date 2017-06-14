@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %} Premier League 2011 -2012 {% endblock %}
+
+{% block body %}
+
+    <div class="container">
+
+        <h1><a href="{{ path('_homepage') }}">Premier League 2011-2012</a></h1>
+        <h2>{{ team.name }} home games:</h2>
+
+        <div class="games-table">
+
+            <form name="search" class="form-inline" action="{{ path('_team_page', {'name': team.name}) }} " method="GET" data-toggle="validator">
+                <div class="form-group">
+                    <label for="search">Name</label>
+                    <input  type="text" class="form-control" name="search" id="search" pattern="^([a-zA-Z]){3,15}$" maxlength="15"  placeholder="ie. Arsenal">
+                </div>
+                <button type="submit" class="btn btn-info">Filter</button>
+                <button type="reset" id="reset-btn" class="btn btn-danger">Clear</button>
+            </form>
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Away Team</th>
+                    <th>Date</th>
+                    <th>Score</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for game in games %}
+                    <tr>
+                        <td>{{ game.awayTeam.name }}</td>
+                        <td>{{ game.score }}</td>
+                        <td>{{ game.date|date("m/d/Y") }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+    <script type="application/javascript" src="{{ asset('assets/bootstrap/js/bootstrap.min.js')}}"></script>
+    <script type="application/javascript" src="{{ asset('assets/bootstrap/js/validator.js')}}"></script>
+    <script type="application/javascript" src="{{ asset('js/form.js')}}"></script>
+{% endblock %}

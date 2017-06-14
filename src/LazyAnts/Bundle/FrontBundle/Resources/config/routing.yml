@@ -1,0 +1,7 @@
+_homepage:
+    path:     /
+    defaults: { _controller: LazyAntsFrontBundle:Main:index }
+
+_team_page:
+    path:     /{name}
+    defaults: { _controller: LazyAntsFrontBundle:Main:team }

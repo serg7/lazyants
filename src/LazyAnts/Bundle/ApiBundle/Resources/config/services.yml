@@ -1,0 +1,4 @@
+services:
+#    lazy_ants_api.example:
+#        class: LazyAnts\Bundle\ApiBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

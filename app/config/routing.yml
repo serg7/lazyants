@@ -1,0 +1,7 @@
+lazy_ants_api:
+    resource: "@LazyAntsApiBundle/Resources/config/routing.yml"
+    prefix:   /
+
+lazy_ants_front:
+    resource: "@LazyAntsFrontBundle/Resources/config/routing.yml"
+    prefix:   /

@@ -1,0 +1,34 @@
+LazyAnts\Bundle\FrontBundle\Entity\Team:
+    type: entity
+    table: teams
+    repositoryClass: LazyAnts\Bundle\FrontBundle\Repository\TeamRepository
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        logo:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        name:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+
+    oneToMany:
+        homeGames:
+          targetEntity: LazyAnts\Bundle\FrontBundle\Entity\Game
+          mappedBy: homeTeam
+          orderBy: { 'date': 'ASC' }
+
+    lifecycleCallbacks: {  }
